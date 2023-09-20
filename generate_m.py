@@ -36,17 +36,17 @@ for root in ['raw/1-L', 'raw/1-R', 'raw/2-L', 'raw/2-R']:
                 filepath = os.path.join(dirpath, filename)                
                 if filename.split('.')[0].split('_')[-1] == 'wICPRegistered':
                     points = convertVtk2Np_Poly(filepath)
-                    filenameList = filepath.replace('raw','dataset_mat1').split('/')[:-1]
+                    filenameList = filepath.replace('raw','dataset_mat').split('/')[:-1]
                     filenameList.append('gt_points')
                     dstPointsFilePath = '/'.join(filenameList)
                     np2mat(points, dstPointsFilePath)
 
                 elif filename.split('.')[0].split('_')[-1] == 'mesh':
                     points, cells = convertVtk2Np_UG(filepath)
-                    filenameList = filepath.replace('raw','dataset_mat1').split('/')[:-1]
+                    filenameList = filepath.replace('raw','dataset_mat').split('/')[:-1]
                     filenameList.append('pre_points')
                     dstPointsFilePath = '/'.join(filenameList)
-                    filenameList = filepath.replace('raw','dataset_mat1').split('/')[:-1]
+                    filenameList = filepath.replace('raw','dataset_mat').split('/')[:-1]
                     filenameList.append('pre_cells')
                     dstCellsFilePath = '/'.join(filenameList)
                     np2mat(points, dstPointsFilePath)
@@ -54,10 +54,10 @@ for root in ['raw/1-L', 'raw/1-R', 'raw/2-L', 'raw/2-R']:
                     
                 elif filename.split('.')[0].split('_')[-1] == 'smoothed':
                     points, cells = convertVtk2Np_UG(filepath)
-                    filenameList = filepath.replace('raw','dataset_mat1').split('/')[:-1]
+                    filenameList = filepath.replace('raw','dataset_mat').split('/')[:-1]
                     filenameList.append('deformed_points')
                     dstPointsFilePath = '/'.join(filenameList)
-                    filenameList = filepath.replace('raw','dataset_mat1').split('/')[:-1]
+                    filenameList = filepath.replace('raw','dataset_mat').split('/')[:-1]
                     filenameList.append('deformed_cells')
                     dstCellsFilePath = '/'.join(filenameList)
                     np2mat(points, dstPointsFilePath)

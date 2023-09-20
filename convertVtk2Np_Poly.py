@@ -8,7 +8,7 @@ from vtk.numpy_interface import dataset_adapter as dsa
 
 def convertVtk2Np_Poly(vtkFilePath):
     reader = vtkPolyDataReader()
-    reader.SetFileName('ExampleDataDingrong/0124-LeftMob_0913-USPlane0/PreOperative/0124_bel_align.vtk')
+    reader.SetFileName(vtkFilePath)
     reader.ReadAllVectorsOn()
     reader.ReadAllScalarsOn()
     reader.Update()
