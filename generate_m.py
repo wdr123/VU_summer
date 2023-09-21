@@ -12,6 +12,10 @@ filename_list = ['0124_mesh', '0124_meshtre_IntraOp_wICPRegistered', '01242014_m
 
 def np2mat(srcNumpyArray, dstFilePath):
     dstFileDir = '/'.join(dstFilePath.split('/')[:-1])
+
+    if os.path.exists(os.path.splitext(dstFilePath)[0]+'.mat'):
+        return
+    
     if not os.path.exists(dstFileDir):
          os.makedirs(dstFileDir)
     
